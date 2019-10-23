@@ -24,7 +24,7 @@
                 var pat = [];
                 var i;
                 for (i = 0; i < firstOutput.length; i++) {
-                    pat.push(firstOutput[i] - secondOutput[i]);
+                    pat.push(secondOutput[i] - firstOutput[i]);
                 }
                 document.getElementById('firstOutput').innerHTML = firstOutput.toString();
                 document.getElementById('secondOutput').innerHTML = secondOutput.toString();
@@ -56,14 +56,6 @@
                     }
                     document.getElementById('convertOutput').innerHTML = ret.reduce((t, x) => t+x).toUpperCase();
                 }
-                // alert(ci.toString());
-                // alert(ps.toString());
-                // for (var i = 0; i < ci.length; i++) {
-                //     alert(i);
-                // }
-                // alert(ci);
-                // alert()
-                
             }
         </script>
     </body>
