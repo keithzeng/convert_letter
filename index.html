@@ -47,15 +47,11 @@
                 var convertPattern = document.getElementById('convertPattern').value.toLowerCase();
                 var ci = Array.from(convertInput);
                 var ps = convertPattern.split(",").map(x=>parseInt(x));
-                if (ci.length != ps.length) {
-                    document.getElementById('convertOutput').innerHTML = "Len1 = " + ci.length + ", Len2 = " + ps.length;
-                } else {
-                    var ret = [];
-                    for (var i = 0; i < ci.length; i++) {
-                        ret.push(String.fromCharCode(ci[i].charCodeAt(0) + ps[i]));
-                    }
-                    document.getElementById('convertOutput').innerHTML = ret.reduce((t, x) => t+x).toUpperCase();
+                var ret = [];
+                for (var i = 0; i < ci.length; i++) {
+                    ret.push(String.fromCharCode(ci[i].charCodeAt(0) + ps[i]));
                 }
+                document.getElementById('convertOutput').innerHTML = ret.reduce((t, x) => t+x).toUpperCase();
             }
         </script>
     </body>
