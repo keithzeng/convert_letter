@@ -16,8 +16,8 @@
         <script>
             function myFunction(e) {
                 e.preventDefault();
-                var first = document.getElementById('first').value;
-                var second = document.getElementById('second').value;
+                var first = document.getElementById('first').value.toLowerCase();
+                var second = document.getElementById('second').value.toLowerCase();
 
                 var firstOutput = Array.from(first).map(x => x.charCodeAt(0) - 'a'.charCodeAt(0) + 1); 
                 var secondOutput = Array.from(second).map(x => x.charCodeAt(0) - 'a'.charCodeAt(0) + 1);
