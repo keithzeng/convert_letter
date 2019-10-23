@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <title>This is the title of the webpage!</title>
+    </head>
+    <body>
+        <form id="myForm" onsubmit="myFunction(event)">
+            <input type="text" name="first" id="first"><br>
+            <input type="text" name="second" id="second"><br>
+            <input type="submit" value="Convert">
+        </form>
+        <div>
+            <div id="firstOutput"></div>
+            <div id="secondOutput"></div>
+        </div>
+        <script>
+            function myFunction(e) {
+                e.preventDefault();
+                var first = document.getElementById('first').value;
+                var second = document.getElementById('second').value;
+                var firstOutput = Array.from(first).map(x => x.charCodeAt(0) - 'a'.charCodeAt(0) + 1); 
+                var secondOutput = Array.from(second).map(x => x.charCodeAt(0) - 'a'.charCodeAt(0) + 1);
+                document.getElementById('firstOutput').innerHTML = firstOutput.toString();
+                document.getElementById('secondOutput').innerHTML = secondOutput.toString();
+            }
+        </script>
+    </body>
+</html>
