@@ -49,7 +49,8 @@
                 var ps = convertPattern.split(",").map(x=>parseInt(x));
                 var ret = [];
                 for (var i = 0; i < ci.length; i++) {
-                    ret.push(String.fromCharCode(ci[i].charCodeAt(0) + ps[i]));
+                    var id = (ci[i].charCodeAt(0) + ps[i % ps.length] + 26 - 'a'.charCodeAt(0)) % 26 + 'a'.charCodeAt(0);
+                    ret.push(String.fromCharCode(id));
                 }
                 document.getElementById('convertOutput').innerHTML = ret.reduce((t, x) => t+x).toUpperCase();
             }
