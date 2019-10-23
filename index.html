@@ -18,8 +18,10 @@
                 e.preventDefault();
                 var first = document.getElementById('first').value;
                 var second = document.getElementById('second').value;
+
                 var firstOutput = Array.from(first).map(x => x.charCodeAt(0) - 'a'.charCodeAt(0) + 1); 
                 var secondOutput = Array.from(second).map(x => x.charCodeAt(0) - 'a'.charCodeAt(0) + 1);
+                
                 document.getElementById('firstOutput').innerHTML = firstOutput.toString();
                 document.getElementById('secondOutput').innerHTML = secondOutput.toString();
             }
