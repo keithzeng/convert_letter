@@ -21,9 +21,49 @@
 
                 var firstOutput = Array.from(first).map(x => x.charCodeAt(0) - 'a'.charCodeAt(0) + 1); 
                 var secondOutput = Array.from(second).map(x => x.charCodeAt(0) - 'a'.charCodeAt(0) + 1);
-                
+                var pat = [];
+                var i;
+                for (i = 0; i < firstOutput.length; i++) {
+                    pat.push(firstOutput[i] - secondOutput[i]);
+                }
                 document.getElementById('firstOutput').innerHTML = firstOutput.toString();
                 document.getElementById('secondOutput').innerHTML = secondOutput.toString();
+                document.getElementById('convertPattern').value = pat.toString();
+            }
+        </script>
+        <br>
+        <form id="convertFrom" onsubmit="convert(event)">
+            <input type="text" name="convertInput" id="convertInput"><br>
+            <input type="text" name="convertPattern" id="convertPattern"><br>
+            <input type="submit" value="Convert">
+        </form>
+        <div>
+            <div id="convertOutput"></div>
+        </div>
+        <script>
+            function convert(e) {
+                e.preventDefault();
+                var convertInput = document.getElementById('convertInput').value.toLowerCase();
+                var convertPattern = document.getElementById('convertPattern').value.toLowerCase();
+                var ci = Array.from(convertInput);
+                var ps = convertPattern.split(",").map(x=>parseInt(x));
+                if (ci.length != ps.length) {
+                    document.getElementById('convertOutput').innerHTML = "Len1 = " + ci.length + ", Len2 = " + ps.length;
+                } else {
+                    var ret = [];
+                    for (var i = 0; i < ci.length; i++) {
+                        ret.push(String.fromCharCode(ci[i].charCodeAt(0) + ps[i]));
+                    }
+                    document.getElementById('convertOutput').innerHTML = ret.reduce((t, x) => t+x).toUpperCase();
+                }
+                // alert(ci.toString());
+                // alert(ps.toString());
+                // for (var i = 0; i < ci.length; i++) {
+                //     alert(i);
+                // }
+                // alert(ci);
+                // alert()
+                
             }
         </script>
     </body>
